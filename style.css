@@ -6,7 +6,7 @@ body{
     background-color: black;
 }
 div.row{
-    display:inline-block;
+    display:flex;
 }
 div.brick{
     background-color: blue;

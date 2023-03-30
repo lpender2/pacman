@@ -49,27 +49,31 @@ displayPacman();
 displayScore();
 
 document.onkeydown = function(e){
-    if(e.keyCode == 37 && world[pacman.x-1][pacman.y] !=2){
+    if(e.keyCode == 37 && world[pacman.y][pacman.x-1] !=2){
         pacman.x--;
+        document.getElementById("pacman").style.transform = "rotate(180deg)"
     }
-    else if(e.keyCode == 39 && world[pacman.x+1][pacman.y] !=2){
+    else if(e.keyCode == 39 && world[pacman.y][pacman.x+1] !=2){
         pacman.x ++;
+        document.getElementById("pacman").style.transform = "rotate(0deg)"
     }
-    else if(e.keyCode == 38 && world[pacman.x][pacman.y-1] !=2){
+    else if(e.keyCode == 38 && world[pacman.y-1][pacman.x] !=2){
         pacman.y --;
+        document.getElementById("pacman").style.transform = "rotate(-90deg)"
     }
-    else if(e.keyCode == 40 && world[pacman.x][pacman.y+1] !=2){
+    else if(e.keyCode == 40 && world[pacman.y+1][pacman.x] !=2){
         pacman.y ++;
+        document.getElementById("pacman").style.transform = "rotate(90deg)"
     }
     
-    if(world[pacman.x][pacman.y] == 1){
-        world[pacman.x][pacman.y] = 0;
+    if(world[pacman.y][pacman.x] == 1){
+        world[pacman.y][pacman.x] = 0;
         score+=10;
         displayworld();
         displayScore();
     }
-    if(world[pacman.x][pacman.y] == 3){
-        world[pacman.x][pacman.y] = 0;
+    if(world[pacman.y][pacman.x] == 3){
+        world[pacman.y][pacman.x] = 0;
         score+=50;
         displayworld();
         displayScore();
